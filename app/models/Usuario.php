@@ -1,21 +1,18 @@
 <?php
-require_once '../config/database.php';
+
+require_once __DIR__ . '/../config/database.php';
 
 class Usuario {
     private $conn;
-    private $table = 'usuarios';
 
     public function __construct() {
-        $database = new Database();
-        $this->conn = $database->connect();
+        $db = new Database();
+        $this->conn = $db->connect();
     }
-    echo "Buscando usuario: " . $usuario;
 
-
-    public function obtenerUsuario($usuario) {
-        $query = "SELECT * FROM " . $this->table . " WHERE usuario = :usuario";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':usuario', $usuario);
+    public function findUserByUsername($username) {
+        $stmt = $this->conn->prepare("SELECT * FROM usuarios WHERE usuario = :usuario");
+        $stmt->bindParam(':usuario', $username);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }

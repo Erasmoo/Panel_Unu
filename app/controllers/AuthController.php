@@ -1,23 +1,13 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../models/Usuario.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['usuario'];
     $password = $_POST['password'];
 
-    $db = new Database();
-    $conn = $db->connect();
-
-    $stmt = $conn->prepare("SELECT * FROM usuarios WHERE usuario = :usuario");
-    $stmt->bindParam(':usuario', $usuario);
-
-    $stmt->execute();
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    
-    
-    
+    $userModel = new Usuario();
+    $user = $userModel->findUserByUsername($usuario);
 
     if (!$user) {
         echo "El usuario no existe en la base de datos.";
@@ -34,6 +24,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         exit();
     }
-    
 }
 ?>

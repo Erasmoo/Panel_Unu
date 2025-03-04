@@ -1,7 +1,7 @@
 <?php
 class Database {
     private $host = "localhost";
-    private $db_name = "panel_denuncias";
+    private $db_name = "PanelUnu";
     private $username = "root";
     private $password = "";
     public $conn;
