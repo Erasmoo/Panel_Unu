@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="/public/css/login.css">
+    <link rel="stylesheet" href="http://localhost/Panel_Unu/public/css/login.css">
 
 </head>
 <body>

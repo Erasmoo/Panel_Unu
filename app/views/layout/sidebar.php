@@ -1,19 +1,23 @@
-<aside>
-    <nav>
-        <ul>
-            <?php if ($_SESSION['role'] === 'admin'): ?>
-                <li><a href="/admin/dashboard.php">Dashboard</a></li>
-                <li><a href="/admin/casos.php">Casos Registrados</a></li>
-                <li><a href="/admin/usuarios.php">Usuarios</a></li>
-                <li><a href="/admin/reportes.php">Reportes</a></li>
-                <li><a href="/admin/configuracion.php">Configuración</a></li>
-            <?php else: ?>
-                <li><a href="/encargado/dashboard.php">Dashboard</a></li>
-                <li><a href="/encargado/mis_casos.php">Mis Casos</a></li>
-                <li><a href="/encargado/historial.php">Historial de Casos</a></li>
-                <li><a href="/encargado/reportes.php">Reportes</a></li>
-            <?php endif; ?>
-            <li><a href="/app/controllers/logout.php">Cerrar Sesión</a></li>
-        </ul>
-    </nav>
-</aside>
+<aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <span class="material-icons-outlined">inventory</span> Panel de Control
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+            <ul class="sidebar-list">
+                <?php if ($_SESSION['rol'] === 'admin'): ?>
+                    <li class="sidebar-list-item"><a href="/admin/dashboard.php"><span class="material-icons-outlined">dashboard</span> Dashboard</a></li>
+                    <li class="sidebar-list-item"><a href="/admin/casos.php"><span class="material-icons-outlined">fact_check</span> Casos</a></li>
+                    <li class="sidebar-list-item"><a href="/admin/usuarios.php"><span class="material-icons-outlined">people</span> Usuarios</a></li>
+                    <li class="sidebar-list-item"><a href="/admin/reportes.php"><span class="material-icons-outlined">poll</span> Reportes</a></li>
+                    <li class="sidebar-list-item"><a href="/admin/configuracion.php"><span class="material-icons-outlined">settings</span> Configuración</a></li>
+                <?php else: ?>
+                    <li class="sidebar-list-item"><a href="/encargado/dashboard.php"><span class="material-icons-outlined">dashboard</span> Dashboard</a></li>
+                    <li class="sidebar-list-item"><a href="/encargado/mis_casos.php"><span class="material-icons-outlined">assignment</span> Mis Casos</a></li>
+                    <li class="sidebar-list-item"><a href="/encargado/historial.php"><span class="material-icons-outlined">history</span> Historial</a></li>
+                    <li class="sidebar-list-item"><a href="/encargado/reportes.php"><span class="material-icons-outlined">poll</span> Reportes</a></li>
+                <?php endif; ?>
+                <li class="sidebar-list-item"><a href="../controllers/logout.php"><span class="material-icons-outlined">logout</span> Cerrar Sesión</a></li>
+            </ul>
+        </aside>
